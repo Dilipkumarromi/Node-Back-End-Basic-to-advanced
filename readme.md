@@ -1,3 +1,4 @@
+# Date - 21-12-2022  Table field, Add, Modify, Delete 
 ---> Add Table Field
 1. npx sequelize-cli migration:create --name modify_tbl_login
 
