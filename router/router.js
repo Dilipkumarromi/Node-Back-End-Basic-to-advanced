@@ -4,6 +4,7 @@ const tbl_registration=require('../controller/registrationController')
 const tbl_login=require('../controller/loginController')
 const address=require('../controller/addressController')
 const courseController=require('../controller/courseController')
+const tbl_customer_master_login=require('../controller/customerMasterLogin')
 
 //post
 router
@@ -11,7 +12,7 @@ router
     .post('/login/create',tbl_login.create)
     .post('/address/create',address.create)
     .post('/course/create',courseController.create)
-
+    .post('/customer/registration',tbl_customer_master_login.customerLogin)
 
 
 //get
