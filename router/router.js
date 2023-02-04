@@ -13,6 +13,7 @@ router
     .post('/address/create',address.create)
     .post('/course/create',courseController.create)
     .post('/customer/registration',tbl_customer_master_login.customerLogin)
+    .post('/user/login',tbl_customer_master_login.login)
 
 
 //get
