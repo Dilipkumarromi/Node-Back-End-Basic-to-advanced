@@ -30,3 +30,7 @@
 2.  await queryInterface.removeColumn('tbl_logins', 'mobile');
 
 3.npx sequelize-cli db:migrate
+
+# JWT token Verify
+1. Middleware--> create a new token verify code
+2. http://localhost:81/user/list  --GET Method Pass login token in Authorization in Bearer Token
