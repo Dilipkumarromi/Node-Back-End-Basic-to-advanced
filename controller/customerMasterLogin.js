@@ -127,3 +127,21 @@ exports.login=async(req,res)=>{
         
     }
 }
+
+exports.getUserList=async(req,res)=>{
+    try {
+        await db.tbl_customer_master_login.findAll().then(result=>{
+            res.send({
+                status:200,
+                message:'Fetach all user records!',
+                data:result
+            })
+        })
+        
+    } catch (error) {
+         res.send({
+            status:500,
+            message:error.message
+        })
+    }
+}

@@ -5,7 +5,9 @@ const tbl_login=require('../controller/loginController')
 const address=require('../controller/addressController')
 const courseController=require('../controller/courseController')
 const tbl_customer_master_login=require('../controller/customerMasterLogin')
+const jwtController=require('../controller/JWT/jwtController')
 
+const tokenVerify=require('../middleware/jwtTokenVerify')
 //post
 router
     .post('/registration/create',tbl_registration.create)
@@ -15,13 +17,21 @@ router
     .post('/customer/registration',tbl_customer_master_login.customerLogin)
     .post('/user/login',tbl_customer_master_login.login)
 
+    //JWT TOKEN
+    .post('/jwt/customer/login',jwtController.login)
+
+
+    
 
 //get
 router
     .get('/registration/getFindByEmail/:email',tbl_registration.getFindByEmail)
     .get('/course/get/:id',courseController.get)
-
     .get('/reg/get/:email',tbl_registration.getDataByEmail)
+
+    //middleware
+    .get('/user/list',tokenVerify.jwtVerify,tbl_customer_master_login.getUserList)
+
 
 router.get('/login/get/:email',tbl_login.getFindByEmail)
 

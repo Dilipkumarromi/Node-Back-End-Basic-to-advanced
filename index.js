@@ -3,7 +3,7 @@ const app=expres()
 const bodyParser = require('body-parser')
 const { application } = require('express')
 console.log('welcome to dilipcodingskills ')
-
+require('dotenv').config()
 const router=require('./router/router')
  
 app.use(bodyParser.urlencoded({ extended: false })) 
