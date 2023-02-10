@@ -6,8 +6,9 @@ const address=require('../controller/addressController')
 const courseController=require('../controller/courseController')
 const tbl_customer_master_login=require('../controller/customerMasterLogin')
 const jwtController=require('../controller/JWT/jwtController')
-
-const tokenVerify=require('../middleware/jwtTokenVerify')
+const Register=require('../controller/Account-Register/Register')
+const token=require('../middleware/jwtTokenVerify')
+const Email = require('../utility/email')
 //post
 router
     .post('/registration/create',tbl_registration.create)
@@ -30,7 +31,8 @@ router
     .get('/reg/get/:email',tbl_registration.getDataByEmail)
 
     //middleware
-    .get('/user/list',tokenVerify.jwtVerify,tbl_customer_master_login.getUserList)
+    .get('/user/list',token.jwtVerify,tbl_customer_master_login.getUserList)
+
 
 
 router.get('/login/get/:email',tbl_login.getFindByEmail)
@@ -46,5 +48,7 @@ router.delete('/user/delete/:email',tbl_registration.delete)
 router.get('/user/delete/:email',tbl_registration.delete)
 
 router.post('/user/delete/:email',tbl_registration.delete)
+
+router.post('/user-send-email',Register.studentRegister)
 
 module.exports=router

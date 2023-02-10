@@ -34,3 +34,9 @@
 # JWT token Verify
 1. Middleware--> create a new token verify code
 2. http://localhost:81/user/list  --GET Method Pass login token in Authorization in Bearer Token
+
+# Send email with Nodemailer
+1. .env --> add secure var name as: email,password,port,etc
+2. create send email function in utility
+3. create email controller
+4. create send email router

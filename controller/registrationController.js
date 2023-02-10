@@ -160,20 +160,3 @@ exports.getDataByEmail=async(req,res)=>{
     }
 }
 
-exports.getUserList=async(req,res)=>{
-    try {
-        const data=await db.tbl_registration.findAll().then(result=>{
-            res.send({
-                status:200,
-                message:'Fetach all user records!',
-                data:result
-            })
-        })
-        
-    } catch (error) {
-         res.send({
-            status:500,
-            message:error.message
-        })
-    }
-}

@@ -1,7 +1,7 @@
 const db = require('../../models/index')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-require('dotenv').config()
+
 const jwtSecKey=process.env.JWT_TOKEN
 console.log('jwt',jwtSecKey)
 exports.login=async(req,res)=>{
