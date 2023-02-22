@@ -1,6 +1,5 @@
 const db=require('../../models/index')
 const { Email } = require('../../utility/email')
- 
 
 exports.studentRegister=async(req,res)=>{
     try {
