@@ -40,3 +40,6 @@
 2. create send email function in utility
 3. create email controller
 4. create send email router
+
+# ajv with nodeJs API - 23-02-2023
+1. install ajv =>  npm i ajv 
