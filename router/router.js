@@ -9,6 +9,8 @@ const jwtController=require('../controller/JWT/jwtController')
 const Register=require('../controller/Account-Register/Register')
 const token=require('../middleware/jwtTokenVerify')
 const Email = require('../utility/email')
+const importExcel=require('../controller/excel/excel')
+
 //post
 router
     .post('/registration/create',tbl_registration.create)
@@ -17,33 +19,34 @@ router
     .post('/course/create',courseController.create)
     .post('/customer/registration',tbl_customer_master_login.customerLogin)
     .post('/user/login',tbl_customer_master_login.login)
-
+    
     //JWT TOKEN
     .post('/jwt/customer/login',jwtController.login)
-
-
     
-
+    
+    
+    
 //get
 router
     .get('/registration/getFindByEmail/:email',tbl_registration.getFindByEmail)
     .get('/course/get/:id',courseController.get)
     .get('/reg/get/:email',tbl_registration.getDataByEmail)
-
+    .get('/address/import-excel-data',importExcel.importExcelData)
+    
     //middleware
     .get('/user/list',token.jwtVerify,tbl_customer_master_login.getUserList)
-
-
-
-router.get('/login/get/:email',tbl_login.getFindByEmail)
-
-//update
-router.patch('/user/update',tbl_registration.update)
-
-//delete
-router.delete('/user/delete',tbl_registration.delete)
-
-router.delete('/user/delete/:email',tbl_registration.delete)
+    
+    
+    
+    router.get('/login/get/:email',tbl_login.getFindByEmail)
+    
+    //update
+    router.patch('/user/update',tbl_registration.update)
+    
+    //delete
+    router.delete('/user/delete',tbl_registration.delete)
+    
+    router.delete('/user/delete/:email',tbl_registration.delete)
 
 router.get('/user/delete/:email',tbl_registration.delete)
 

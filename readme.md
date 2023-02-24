@@ -43,3 +43,8 @@
 
 # ajv with nodeJs API - 23-02-2023
 1. install ajv =>  npm i ajv 
+2. https://ajv.js.org/
+
+# import data in database from excel
+1. npm i xlsx
+
